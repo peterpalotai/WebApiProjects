@@ -9,11 +9,12 @@ namespace hajos_quiz.Controllers
     public class BoatController : ControllerBase
     {
         [HttpGet]
-        [Route("question/all")]
+        [Route("questions/all")]
         public IActionResult MindegyHogyHivjak()
         {
             HajosContext context = new HajosContext();
-            var kerdesek = from x in context.Questions select x.Question1;
+            var kerdesek = from x in context.Questions 
+                           select x.Question1;
 
             return Ok(kerdesek);
         }
